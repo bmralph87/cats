@@ -19,15 +19,18 @@
         </nav>
     </header>
     <main>
+        <!--Welcome Section-->
         <div>
             <h2 id="welcome"> Welcome to the most puur-fect place on Earth!</h2>
             <p>Here you will find all things pets! From ways to add to your furry family, and how to appreciate the
                 loved ones you already have.
                 This site is just for you! Do you have a feature that you think would be paw-some for this site? Be sure
                 to let us know by <a href="mailto:">emailing us!</a>
+                <!--Email above not linked to active email yet-->
             </p>
         </div>
 
+        <!--About Us Section-->
         <div>
             <h2 id="about-us">About Us</h2>
             <p>This site was created by 4 furr-ocious pet loving individuals. What started out as a homework project has
@@ -35,9 +38,13 @@
                 op-paw-tunity to educate others about the pleasures and benefits of owning a pet! </p>
         </div>
 
+        <!--Meet the Developers Section-->
         <div>
+            <!--Pictures and about needed for group members-->
             <h3 id="meet-devs">Meet the Developers</h3>
         </div>
+
+        <!--Pawsible Pets Section-->
         <div>
             <h2 id="pawsible-pets">Paw-sible Pets</h2>
             <p> There are so many paw-sibilities when it comes to finding a pet. Use our Pet Picker to select one of the
@@ -92,6 +99,7 @@
                 </div>
             </div>
 
+
             <!-- Modal for facts/picture and for saving favorite breeds to local storage-->
             <div class="modal">
                 <div class="modal-background"></div>
@@ -113,24 +121,28 @@
         </div>
         <div>
             <h2 id="find-friend">Find your Furry Friend!</h2>
-            <div>
-                <input class="input is-rounded" type="text" placeholder="Zip Code">
+            <!--Drop down menu for distance/zip code input/submit button-->
+            <div class="field has-addons has-addons-left">
+                <p class="control">
+                    <span class="select">
+                        <select>
+                            <option>Select distance</option>
+                            <option value="10">10 miles</option>
+                            <option value="25">25 miles</option>
+                            <option value="50">50 miles</option>
+                            <option value="100">100 miles</option>
+                        </select>
+                    </span>
+                </p>
+                <p class="control">
+                    <input class="input" type="text" placeholder="Zip Code">
+                </p>
+                <p class="control">
+                    <a class="button is-primary">
+                        Search
+                    </a>
+                </p>
             </div>
-            <div class="control">
-                <div class="select">
-                    <select>
-                        <option>Select distance</option>
-                        <option value="10">10 miles</option>
-                        <option value="25">25 miles</option>
-                        <option value="50">50 miles</option>
-                        <option value="100">100 miles</option>
-                    </select>
-                </div>
-            </div>
-            <div class="control">
-                <button class="button is-primary">Find Zip Code</button>
-            </div>
-        </div>
 
     </main>
 
