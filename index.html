@@ -5,17 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="./css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <title>PetPurrfect</title>
 </head>
 
 <body>
     <header>
-        <nav class="navbar">
-            <a href="#about-us">About Us</a>
-            <a href="#pawsible-pets">Pawsible Pets</a>
-            <a href="#find-friend">Find your Furry Friend</a>
+        <nav class="navbar" id="navigation" role="navigation" aria-label="main navigation">
+            <a class="nav-image" href="./index.html">
+                <img src="./images/petpurrfect_logo.png">
+            </a>
+            <div class="navbar-end">
+                <a class="navbar-item" href="#about-us">About Us</a>
+                <a class="navbar-item" href="#pawsible-pets">Pawsible Pets</a>
+                <a class="navbar-item" href="#find-friend">Find your Furry Friend</a>
+            </div>
         </nav>
     </header>
     <main>
@@ -35,60 +43,66 @@
                 op-paw-tunity to educate others about the pleasures and benefits of owning a pet! </p>
         </div>
 
-        <div>
+        <div class=meet-devs>
             <h3 id="meet-devs">Meet the Developers</h3>
+            <div class="dev-pics">
+                <img src="./images/ashley.png" alt="Photo of Ashley">
+                <img src="./images/britt.png" alt="Photo of Britt">
+                <img src="./images/curtis.png" alt="Photo of Curtis">
+                <img src="./images/lucianne.png" alt="Photo of Lucianne">
+            </div>
         </div>
         <div>
             <h2 id="pawsible-pets">Paw-sible Pets</h2>
             <p> There are so many paw-sibilities when it comes to finding a pet. Use our Pet Picker to select one of the
                 most popular cat-egories!</p>
-
-
-            <!--Dropdown menu static on the page (once breed is selected, modal should be prompted with fact/pic-->
-            <div class="control">
-                <div class="select">
-                    <select>
-                        <option>Select a Breed</option>
-                        <option class="siamese" id="siamese">
-                            Siamese
-                        </option>
-                        <option class="dropdown-item" id="persian">
-                            Persian
-                        </option>
-                        <option class="dropdown-item" id="maine-coon">
-                            Maine Coon
-                        </option>
-                        <option class="dropdown-item" id="ragdoll">
-                            Ragdoll
-                        </option>
-                        <option class="dropdown-item" id="bengal">
-                            Bengal
-                        </option>
-                        <option class="dropdown-item" id="abyssinian">
-                            Abyssinian
-                        </option>
-                        <option class="dropdown-item" id="birman">
-                            Birman
-                        </option>
-                        <option class="dropdown-item" id="oriental-shorthair">
-                            Oriental Shorthair
-                        </option>
-                        <option class="dropdown-item" id="sphynx">
-                            Sphynx
-                        </option>
-                        <option class="dropdown-item" id="devon-rex">
-                            Devon Rex
-                        </option>
-                        <option class="dropdown-item" id="himalayan">
-                            Himalayan
-                        </option>
-                        <option class="dropdown-item" id="american-shorthair">
-                            American Shorthair
-                        </option>
-                    </select>
-                </div>
+            <div class="pawsible">
+                <!--Dropdown menu static on the page (once breed is selected, modal should be prompted with fact/pic-->
                 <div class="control">
-                    <button class="button is-primary">Submit</button>
+                    <div class="select">
+                        <select>
+                            <option>Select a Breed</option>
+                            <option class="siamese" id="siamese">
+                                Siamese
+                            </option>
+                            <option class="dropdown-item" id="persian">
+                                Persian
+                            </option>
+                            <option class="dropdown-item" id="maine-coon">
+                                Maine Coon
+                            </option>
+                            <option class="dropdown-item" id="ragdoll">
+                                Ragdoll
+                            </option>
+                            <option class="dropdown-item" id="bengal">
+                                Bengal
+                            </option>
+                            <option class="dropdown-item" id="abyssinian">
+                                Abyssinian
+                            </option>
+                            <option class="dropdown-item" id="birman">
+                                Birman
+                            </option>
+                            <option class="dropdown-item" id="oriental-shorthair">
+                                Oriental Shorthair
+                            </option>
+                            <option class="dropdown-item" id="sphynx">
+                                Sphynx
+                            </option>
+                            <option class="dropdown-item" id="devon-rex">
+                                Devon Rex
+                            </option>
+                            <option class="dropdown-item" id="himalayan">
+                                Himalayan
+                            </option>
+                            <option class="dropdown-item" id="american-shorthair">
+                                American Shorthair
+                            </option>
+                        </select>
+                    </div>
+                    <div class="control">
+                        <button class="button is-primary">Submit</button>
+                    </div>
                 </div>
             </div>
 

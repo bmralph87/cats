@@ -1,6 +1,51 @@
-/* This is pseudo code 
-
-
-
+/*Pseudo Code
 
 */
+#navigation {
+    font-size: 20px;
+    font-family: 'Berkshire Swash', cursive;
+    background-color: #CD924C;
+}
+
+h2 {
+    font-family: 'Abhaya Libre', serif;
+    font-size: 50px;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Abhaya Libre', serif;
+    font-size: 40px;
+    text-align: center; 
+}
+
+body {
+    background-color: #EDCE9A;
+}
+
+p {
+    font-family: 'Abhaya Libre', serif;
+    font-size: 22px;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+.dev-pics {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.meet-devs img {
+    width: 140px;
+    height: 190px;
+    padding-bottom: 30px;
+}
+
+.pawsible {
+    width: 60%;
+    margin: 0 auto;
+
+}
