@@ -45,56 +45,53 @@
 
 
             <!--Dropdown menu static on the page (once breed is selected, modal should be prompted with fact/pic-->
-            <div class="dropdown">
-                <div class="dropdown-trigger">
-                  <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
-                    <span>Select a Breed</span>
-                    <span class="icon is-small">
-                      <i class="fas fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                  </button>
+            <div class="control">
+                <div class="select">
+                    <select>
+                        <option>Select a Breed</option>
+                        <option class="siamese" id="siamese">
+                            Siamese
+                        </option>
+                        <option class="dropdown-item" id="persian">
+                            Persian
+                        </option>
+                        <option class="dropdown-item" id="maine-coon">
+                            Maine Coon
+                        </option>
+                        <option class="dropdown-item" id="ragdoll">
+                            Ragdoll
+                        </option>
+                        <option class="dropdown-item" id="bengal">
+                            Bengal
+                        </option>
+                        <option class="dropdown-item" id="abyssinian">
+                            Abyssinian
+                        </option>
+                        <option class="dropdown-item" id="birman">
+                            Birman
+                        </option>
+                        <option class="dropdown-item" id="oriental-shorthair">
+                            Oriental Shorthair
+                        </option>
+                        <option class="dropdown-item" id="sphynx">
+                            Sphynx
+                        </option>
+                        <option class="dropdown-item" id="devon-rex">
+                            Devon Rex
+                        </option>
+                        <option class="dropdown-item" id="himalayan">
+                            Himalayan
+                        </option>
+                        <option class="dropdown-item" id="american-shorthair">
+                            American Shorthair
+                        </option>
+                    </select>
                 </div>
-                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                        <div class="dropdown-content">
-                            <a href="#" class="dropdown-item">
-                                Siamese
-                            </a>
-                            <a class="dropdown-item">>
-                                Persian
-                            </a>
-                            <a href="#" class="dropdown-item">
-                                Maine Coon
-                            </a>
-                            <a class="dropdown-item">
-                                Ragdoll
-                            </a>
-                            <a class="bengal" id="bengal">
-                                Bengal
-                            </a>
-                            <a class="abyssinian" id="abyssinian">
-                                Abyssinian
-                            </a>
-                            <a class="birman" id="birman">
-                                Birman
-                            </a>
-                            <a class="oriental-shorthair" id="oriental-shorthair">
-                                Oriental Shorthair
-                            </a>
-                            <a class="sphynx" id="sphynx">
-                                Sphynx
-                            </a>
-                            <a class="devon-rex" id="devon-rex">
-                                Devon Rex
-                            </a>
-                            <a class="himalayan" id="himalayan">
-                                Himalayan
-                            </a>
-                            <a class="american-shorthair" id="american-shorthair">
-                                American Shorthair
-                            </a>
-                        </div>
-                    </div>
+                <div class="control">
+                    <button class="button is-primary">Submit</button>
+                </div>
             </div>
+
             <!-- Modal for facts/picture and for saving favorite breeds to local storage-->
             <div class="modal">
                 <div class="modal-background"></div>
@@ -105,7 +102,6 @@
                     </header>
                     <section class="modal-card-body">
                         <!-- Content ... -->
-
 
                 </div>
                 </section>
