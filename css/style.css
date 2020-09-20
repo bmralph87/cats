@@ -46,11 +46,12 @@ p {
 
 .pawsible {
     background-color: #FFE8C1;
-    width: 40%;
+    width: 60%;
+    height: 500px;
     margin: 0 auto;
     border: 5px solid #CD924C;
     border-radius: 10px;
-    padding: 40px 10px 20px 10px;
+    padding: 40px 100px 20px 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,16 +64,49 @@ p {
 }
 .fyff {
     background-color: #FFDA9B;
-    width: 40%;
-    margin: 0 auto;
+    width: 60%;
+    margin: 0 auto 80px auto;
     border: 5px solid #CD924C;
     border-radius: 10px;
     padding: 40px 10px 20px 10px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 .fyff input {
     width: 100%;
     margin: 0 0 20px 0;
+}
+
+/*MEDIA QUERY FOR TABLETS */
+@media screen and (max-width: 768px) {
+#welcome {
+    font-size: 40px;
+}
+
+.pawsible {
+    width: 80%;
+    padding: 40px 20px 20px 10px;
+}
+.fyff {
+    width: 80%;
+}
+}
+
+/*MEDIA QUERY FOR PHONES AND SMALLER */
+@media screen and (max-width: 575px) {
+.meet-devs img {
+    width: 80px;
+    height: 120px;
+}
+.categories {
+    width: 100%;
+}
+.pawsible {
+    width: 90%;
+}
+.fyff {
+    width: 90%;
+}
 }

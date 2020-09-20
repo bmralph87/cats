@@ -57,65 +57,78 @@
             <p> There are so many paw-sibilities when it comes to finding a pet. Use our Pet Picker to select one of the
                 most popular cat-egories!</p>
             <div class="pawsible">
-                <p>Select a breed of cats<br>(More animals coming soon)</p>
+                <p class="categories">Select a breed of cats<br>(More animals coming soon)</p>
                 <!--Dropdown menu static on the page (once breed is selected, modal should be prompted with fact/pic-->
 
 
                 <!--Dropdown menu static on the page (once breed is selected, modal should be prompted with fact/pic-->
-                <div class="control">
+                <div class="control paw-wrapper">
                     <div class="select">
                         <select id="breed">
                             <option>Select a Breed</option>
                         </select>
                     </div>
                     <div class="control">
-                        <button class= "button is-primary" id= "submit">Submit</button>
+                        <button class="button is-primary" id="submit">Submit</button>
                     </div>
                 </div>
             </div>
 
             <div class="recentBreeds">
-                <ul id="selectedBreeds" class= "list-group"></ul>
+                <ul id="selectedBreeds" class="list-group"></ul>
 
             </div>
         </div>
 
-            <!-- Modal for facts/picture and for saving favorite breeds to local storage-->
-            <div class="modal">
-                <div class="modal-background"></div>
-                <div class="modal-card">
-                    <header class="modal-card-head">
-                        <p class="modal-card-title">Modal title</p>
-                        <button class="delete" aria-label="close"></button>
-                    </header>
-                    <section class="modal-card-body">
-                        <!-- Content ... -->
+        <!-- Modal for facts/picture and for saving favorite breeds to local storage-->
+        <div class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Modal title</p>
+                    <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <!-- Content ... -->
 
-                </div>
-                </section>
-                <footer class="modal-card-foot">
-                    <button class="button is-success">Save changes</button>
-                    <button class="button">Cancel</button>
-                </footer>
             </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success">Save changes</button>
+                <button class="button">Cancel</button>
+            </footer>
         </div>
-        <div>
+        </div>
+        <div class=find-wrapper>
             <h2 id="find-friend">Find your Furry Friend!</h2>
-            <div>
-                <input class="input is-rounded" type="text" placeholder="Zip Code">
-            </div>
-            <div class="control">
-                <div class="select">
-                    <select>
-                        <option>Select distance</option>
-                        <option>10 miles</option>
-                        <option>25 miles</option>
-                        <option>50 miles</option>
-                    </select>
+            <div class="fyff">
+                <div>
+                    <input class="input is-rounded" type="text" placeholder="Zip Code">
+                </div>
+                <div class="control">
+                    <div class="select">
+                        <select>
+                            <option>Select distance</option>
+                            <option>10 miles</option>
+                            <option>25 miles</option>
+                            <option>50 miles</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control">
+                    <button class="button is-primary" id="submit">Find Near Me</button>
                 </div>
             </div>
         </div>
-
+        <footer class="footer">
+            <div class="content has-text-centered">
+              <p>
+                <strong>PetPurrfect</strong> by <a href="https://.com">Ashley Warters</a> , <a href="https://.com">Britt Ralph</a> ,
+                <a href="https://.com">Curtis Henderson</a>, and <a href="https://.com">Lucianne Vazquez</a>. <br> Created as an assignment
+                for the UPennLPS Fullstack Bootcamp.
+              </p>
+            </div>
+          </footer>
     </main>
 
 
