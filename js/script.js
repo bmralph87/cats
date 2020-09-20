@@ -63,6 +63,7 @@ function getBreed(selectedBreed) {
  
   
  saveBreeds(selectedBreed);
+ showRecentBreeds(selectedBreed);
 }
 
 function loadRecentBreeds(){ // get recent breeds searched from local storage
@@ -82,6 +83,17 @@ function loadRecentBreeds(){ // get recent breeds searched from local storage
   });  
 };
 loadRecentBreeds();
+
+function showRecentBreeds(selectedBreeds){ //prints a recent breed
+  // create elements that make up a task item
+    var breedLi = $("<li>").addClass("list-group-item");
+    var breedSpan = $("<span>")
+        .attr("breed",selectedBreeds)
+        .text(selectedBreeds);
+  breedLi.append(breedSpan);
+  // append to li list on the page
+  $("#selectedBreeds").append(breedLi);
+}
 
 
 document.getElementById("submit").addEventListener('click', function (event) {
