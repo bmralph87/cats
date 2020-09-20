@@ -28,7 +28,7 @@
     </header>
     <main>
         <div>
-            <h2 id="welcome"> Welcome to the most puur-fect place on Earth!</h2>
+            <h2 id="welcome"> Welcome to the most purr-fect place on Earth!</h2>
             <p>Here you will find all things pets! From ways to add to your furry family, and how to appreciate the
                 loved ones you already have.
                 This site is just for you! Do you have a feature that you think would be paw-some for this site? Be sure
@@ -57,12 +57,13 @@
             <p> There are so many paw-sibilities when it comes to finding a pet. Use our Pet Picker to select one of the
                 most popular cat-egories!</p>
             <div class="pawsible">
+                <p>Select a breed of cats<br>(More animals coming soon)</p>
                 <!--Dropdown menu static on the page (once breed is selected, modal should be prompted with fact/pic-->
                 <div class="control">
                     <div class="select">
-                        <select>
+                        <select option id="breed">
                             <option>Select a Breed</option>
-                            <option class="siamese" id="siamese">
+                            <option class="dropdown-item" id="siamese">
                                 Siamese
                             </option>
                             <option class="dropdown-item" id="persian">
@@ -101,7 +102,7 @@
                         </select>
                     </div>
                     <div class="control">
-                        <button class="button is-primary">Submit</button>
+                        <button class="button is-primary" id="submit">Submit</button>
                     </div>
                 </div>
             </div>
@@ -128,23 +129,25 @@
         </div>
         <div>
             <h2 id="find-friend">Find your Furry Friend!</h2>
-            <div>
-                <input class="input is-rounded" type="text" placeholder="Zip Code">
-            </div>
-            <div class="control">
-                <div class="select">
-                    <select>
-                        <option>Select distance</option>
-                        <option>5 miles</option>
-                        <option>10 miles</option>
-                        <option>15 miles</option>
-                        <option>20 miles</option>
-                        <option>25 miles</option>
-                    </select>
+            <div class="fyff">
+                <div>
+                    <input class="input is-rounded" type="text" placeholder="Zip Code">
                 </div>
-            </div>
-            <div class="control">
-                <button class="button is-primary">Find Zip Code</button>
+                <div class="control">
+                    <div class="select">
+                        <select>
+                            <option>Select distance</option>
+                            <option>5 miles</option>
+                            <option>10 miles</option>
+                            <option>15 miles</option>
+                            <option>20 miles</option>
+                            <option>25 miles</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control">
+                    <button class="button is-primary" id="submit">Find Zip Code</button>
+                </div>
             </div>
         </div>
 
