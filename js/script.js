@@ -12,8 +12,8 @@ function getBreeds() {
     fetch(getBreedsUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                console.log(data);
-                console.log('datalength:' + data.length);
+                //console.log(data);
+                //console.log('datalength:' + data.length);
                 for (var i = 0; i < data.length; i++) {
                     var myOptions = $("<option>").val(data[i].id).text(data[i].name);
 
@@ -54,10 +54,23 @@ function getBreed(selectedBreed) {
 
 
     fetch(getBreedURL).then(function (response) {
-        console.log(response);
+        //console.log(response);
         if (response.ok) {
             response.json().then(function (data) {
-                console.log(data);
+                //console.log(data);
+                //Create Result Display Info
+                var breedDisplay = document.getElementById("display");
+                breedDisplay.innerHTML = "";
+                var breedName = document.createElement("h3");
+                breedName.textContent = data[0].name;
+                var breedFacts = document.createElement("p");
+                breedFacts.className = "playnice";
+                breedFacts.textContent = data[0].description;
+                var learnMore = document.createElement("div");
+                learnMore.innerHTML= "<a href='" + data[0].wikipedia_url + "' target='_blank'> Learn More </a>";
+                breedDisplay.appendChild(breedName);
+                breedDisplay.appendChild(breedFacts);
+                breedDisplay.appendChild(learnMore);
             })
         }
     });
@@ -116,14 +129,16 @@ function getBearerToken() {
     }).then(function (bearerToken) {
         // This provides you an access token. 
         // It is good for 3600 seconds, or 1 hour.
-        console.log(bearerToken)
+        //console.log(bearerToken)
         getPetData(bearerToken.access_token)
     })
 }
 function getPetData(bearerToken) {
+    var zip = document.getElementById("zipInput").value;
+    var distance = document.getElementById("distanceInput").value;
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     var endpoint = "animals"
-    var searchQuery = "type=cat&limit=5&location=19805"
+    var searchQuery = "type=cat&limit=5&location=" + zip + "&distance=" + distance;
     // This fetch request is a "GET".
     // It doesn't need to be specified though since it is the default
     fetch(proxyurl + "https://api.petfinder.com/v2/" + endpoint + "?" + searchQuery, {
@@ -134,16 +149,18 @@ function getPetData(bearerToken) {
     }).then(function (apiResponse) {
         return apiResponse.json()
     }).then(function (apiResponse) {
-        // This is your example data
         console.log(apiResponse)
     })
 }
-getBearerToken()
+document.getElementById('find').addEventListener('click', function(event){
+    getBearerToken();
+});
+    
 
 // getPetData();
 
 document.getElementById("submit").addEventListener('click', function (event) {
-    var selectedBreed = $('#breed').find(":selected").val();
+    var selectedBreed = $('#breed').find(":selected").text();
     getBreed(selectedBreed);
 });
 

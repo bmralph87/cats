@@ -56,7 +56,7 @@
             <h2 id="pawsible-pets">Paw-sible Pets</h2>
             <p> There are so many paw-sibilities when it comes to finding a pet. Use our Pet Picker to select one of the
                 most popular cat-egories!</p>
-            <div class="pawsible">
+            <div class="pawsible" id="paw-display">
                 <p class="categories">Select a breed of cats<br>(More animals coming soon)</p>
                 <!--Dropdown menu static on the page (once breed is selected, modal should be prompted with fact/pic-->
 
@@ -69,14 +69,14 @@
                         </select>
                     </div>
                     <div class="control">
-                        <button class="button is-primary" id="submit">Submit</button>
+                        <button class="button submit" id="submit">Submit</button>
+                    </div>
+                    <div class="recentBreeds">
+                        Recently Searched Breeds:
+                        <ul id="selectedBreeds" class="list-group"></ul>
+                        <div id="display"><!--Breed info will appear here --></div>
                     </div>
                 </div>
-            </div>
-
-            <div class="recentBreeds">
-                <ul id="selectedBreeds" class="list-group"></ul>
-
             </div>
         </div>
 
@@ -103,32 +103,34 @@
             <h2 id="find-friend">Find your Furry Friend!</h2>
             <div class="fyff">
                 <div>
-                    <input class="input is-rounded" type="text" placeholder="Zip Code">
+                    <input class="input is-rounded" type="text" placeholder="Zip Code" id ="zipInput">
                 </div>
                 <div class="control">
                     <div class="select">
-                        <select>
+                        <select id="distanceInput">
                             <option>Select distance</option>
                             <option value="10">10 miles</option>
                             <option value="25">25 miles</option>
-                            <option value ="50">50 miles</option>
+                            <option value="50">50 miles</option>
                         </select>
                     </div>
                 </div>
                 <div class="control">
-                    <button class="button is-primary find" id="submit">Find Near Me</button>
+                    <button class="button submit" id="find">Find Near Me</button>
                 </div>
             </div>
         </div>
         <footer class="footer">
             <div class="content has-text-centered">
-              <p>
-                <strong>PetPurrfect</strong> by <a href="https://.com">Ashley Warters</a> , <a href="https://.com">Britt Ralph</a> ,
-                <a href="https://.com">Curtis Henderson</a>, and <a href="https://.com">Lucianne Vazquez</a>. <br> Created as an assignment
-                for the UPennLPS Fullstack Bootcamp.
-              </p>
+                <p>
+                    <strong>PetPurrfect</strong> by <a href="https://.com">Ashley Warters</a> , <a
+                        href="https://.com">Britt Ralph</a> ,
+                    <a href="https://.com">Curtis Henderson</a>, and <a href="https://.com">Lucianne Vazquez</a>. <br>
+                    Created as an assignment
+                    for the UPennLPS Fullstack Bootcamp.
+                </p>
             </div>
-          </footer>
+        </footer>
     </main>
 
 
