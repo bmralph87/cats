@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app>
 
 <head>
     <meta charset="UTF-8">
@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css" />
     <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
     <title>PetPurrfect</title>
 </head>
 
@@ -56,8 +57,9 @@
             <h2 id="pawsible-pets">Paw-sible Pets</h2>
             <p> There are so many paw-sibilities when it comes to finding a pet. Use our Pet Picker to select one of the
                 most popular cat-egories!</p>
+                
             <div class="pawsible" id="paw-display">
-                <p class="categories">Select a breed of cats<br>(More animals coming soon)</p>
+                <p class="categories">Select a breed of cats<br>(More animals coming soon) </p>
                 <!--Dropdown menu static on the page (once breed is selected, modal should be prompted with fact/pic-->
 
 
@@ -74,22 +76,23 @@
                     <div class="recentBreeds">
                         Recently Searched Breeds:
                         <ul id="selectedBreeds" class="list-group"></ul>
-                        <div id="display"><!--Breed info will appear here --></div>
+                        <div id="display" class= "display" ><!--Breed info will appear here --></div>
                     </div>
                 </div>
             </div>
         </div>
+    
 
-        <!-- Modal for facts/picture and for saving favorite breeds to local storage-->
-        <div class="modal">
+        <!-- Modal for facts/picture and for saving favorite breeds to local storage
+        <div class="modal" id= "myModal">
             <div class="modal-background"></div>
             <div class="modal-card">
                 <header class="modal-card-head">
                     <p class="modal-card-title">Modal title</p>
-                    <button class="delete" aria-label="close"></button>
+                    <button class="close-button" aria-label="close"></button>
                 </header>
-                <section class="modal-card-body">
-                    <!-- Content ... -->
+                <section id="modal-card-body">
+                   !! Content ...!!
 
             </div>
             </section>
@@ -98,7 +101,7 @@
                 <button class="button">Cancel</button>
             </footer>
         </div>
-        </div>
+        </div>-->
         <div class=find-wrapper>
             <h2 id="find-friend">Find your Furry Friend!</h2>
             <div class="fyff">

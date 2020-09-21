@@ -63,7 +63,7 @@ function getBreed(selectedBreed) {
                         response.json().then(function (urlInfo) {
                             console.log(urlInfo);
 
-                            var breedDisplay = document.getElementById("display");
+                            var breedDisplay = document.getElementById("display")
                             breedDisplay.innerHTML = "";
                             var breedName = document.createElement("h3");
                             breedName.textContent = data[0].name;
@@ -107,6 +107,26 @@ function loadRecentBreeds() { // get recent breeds searched from local storage
     });
 };
 loadRecentBreeds();
+
+//test modal pop-up
+// var modal = document.getElementById("myModal");
+// var trigger = document.getElementById("submit");
+// var closeButton = document.getElementsByClassName("close-button");
+
+// trigger.onclick = function(){
+//     modal.display= "block";
+// }
+
+// closeButton.onclick = function(){
+//     modal.style.display = "none";
+// }
+// window.onclick = function(event){
+//     if (event.target == modal){
+//         modal.style.display = "none";
+//     }
+// }
+
+//end of modal test
 
 function showRecentBreeds(selectedBreeds) { //prints a recent breed
     // create elements that make up a task item
@@ -169,10 +189,12 @@ document.getElementById('find').addEventListener('click', function (event) {
 
 // getPetData();
 
+
 document.getElementById("submit").addEventListener('click', function (event) {
     var selectedBreed = $('#breed').find(":selected").text();
     getBreed(selectedBreed);
 });
+
 
 
 // for (var)
