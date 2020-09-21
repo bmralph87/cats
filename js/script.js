@@ -52,32 +52,42 @@ function getBreed(selectedBreed) {
 
     var getBreedURL = "https://api.thecatapi.com/v1/breeds/search?q=" + selectedBreed + "&api_key=" + catapiKey;
 
-
     fetch(getBreedURL).then(function (response) {
         //console.log(response);
         if (response.ok) {
             response.json().then(function (data) {
-                //console.log(data);
+                console.log(data);
                 //Create Result Display Info
-                var breedDisplay = document.getElementById("display");
-                breedDisplay.innerHTML = "";
-                var breedName = document.createElement("h3");
-                breedName.textContent = data[0].name;
-                var breedFacts = document.createElement("p");
-                breedFacts.className = "playnice";
-                breedFacts.textContent = data[0].description;
-                var learnMore = document.createElement("div");
-                learnMore.innerHTML= "<a href='" + data[0].wikipedia_url + "' target='_blank'> Learn More </a>";
-                breedDisplay.appendChild(breedName);
-                breedDisplay.appendChild(breedFacts);
-                breedDisplay.appendChild(learnMore);
+                fetch("https://api.thecatapi.com/v1/images/search?breed_id=" + data[0].id + "&limit=1&size=thumb&api_key=" + catapiKey).then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (urlInfo) {
+                            console.log(urlInfo);
+
+                            var breedDisplay = document.getElementById("display");
+                            breedDisplay.innerHTML = "";
+                            var breedName = document.createElement("h3");
+                            breedName.textContent = data[0].name;
+                            var breedImage = document.createElement("div");
+                            breedImage.innerHTML = '<img src="' + urlInfo[0].url + '">';
+                            var breedFacts = document.createElement("p");
+                            breedFacts.className = "playnice";
+                            breedFacts.textContent = data[0].description;
+                            var learnMore = document.createElement("div");
+                            learnMore.innerHTML = "<a href='" + data[0].wikipedia_url + "' target='_blank'> Learn More </a>";
+                            breedDisplay.appendChild(breedName);
+                            breedDisplay.appendChild(breedImage);
+                            breedDisplay.appendChild(breedFacts);
+                            breedDisplay.appendChild(learnMore);
+                        })
+                    }
             })
-        }
+        });
+}
     });
 
 
-    saveBreeds(selectedBreed);
-    showRecentBreeds(selectedBreed);
+saveBreeds(selectedBreed);
+showRecentBreeds(selectedBreed);
 }
 
 function loadRecentBreeds() { // get recent breeds searched from local storage
@@ -152,10 +162,10 @@ function getPetData(bearerToken) {
         console.log(apiResponse)
     })
 }
-document.getElementById('find').addEventListener('click', function(event){
+document.getElementById('find').addEventListener('click', function (event) {
     getBearerToken();
 });
-    
+
 
 // getPetData();
 
