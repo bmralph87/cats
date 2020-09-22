@@ -92,6 +92,12 @@ p {
     margin: 0 0 0px 0;
 }
 
+.image-resize {
+    margin: auto;
+    width: 280px;
+    height: 260px;
+}
+
 /*MEDIA QUERY FOR TABLETS */
 @media screen and (max-width: 768px) {
 #welcome {
