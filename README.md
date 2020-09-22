@@ -5,6 +5,7 @@ This project was created as an assignment for the PennLPS Fullstack Bootcamp.
 - HTML
 - CSS/ Bulma
 - JavaScript
+- jQuery
 - PetFinder APIs
 - TheCat API
 
