@@ -179,7 +179,51 @@ function getPetData(bearerToken) {
     }).then(function (apiResponse) {
         return apiResponse.json()
     }).then(function (apiResponse) {
-        console.log(apiResponse)
+        console.log(apiResponse);
+        console.log(apiResponse.animals);
+
+
+         for (var i = 0; i < apiResponse.animals.length; i++) {
+            var adoptDiv=$("<div>").attr("id", "adoptDiv"+i);
+            var myAnimals=apiResponse.animals[i];
+            
+            var myPublished = $("<p>").addClass("card-text").text("Published: "+myAnimals.published_at);
+            var myName = $("<p>").addClass("card-text").text("Name: "+myAnimals.name);
+            var myGender = $("<p>").addClass("card-text").text("Gender: "+myAnimals.gender);
+            var myAge =  $("<p>").addClass("card-text").text("Age: "+myAnimals.age);
+            var myBreed = $("<p>").addClass("card-text").text("Breeds: "+myAnimals.breeds.mixed+","+myAnimals.breeds.primary+","+myAnimals.breeds.secondary+","+myAnimals.breeds.unknown);
+            var myColor = $("<p>").addClass("card-text").text("Colors: "+myAnimals.colors.primary+","+myAnimals.colors.secondary+","+myAnimals.colors.tertiary);
+            var myEnvironment = $("<p>").addClass("card-text").text("Environment: "+myAnimals.environment.cats+","+myAnimals.environment.dogs+","+myAnimals.environment.children);
+            var myDescription = $("<p>").addClass("card-text").text("Description: "+myAnimals.description);
+            var myContactA = $("<p>").addClass("card-text").text("Contact: "+myAnimals.contact.address.address1+","+myAnimals.contact.address.address2+","+myAnimals.contact.address.city+","+myAnimals.contact.address.state+","+myAnimals.contact.address.postcode+","+myAnimals.contact.address.country);
+            var myContactE = $("<p>").addClass("card-text").text("Contact: "+myAnimals.contact.email);
+            var myContactP = $("<p>").addClass("card-text").text("Contact: "+myAnimals.contact.phone);
+            var myPhotosSMtxt=$("<p>").addClass("card-text").text("Photos: ");
+            if (myAnimals.photos[0]){
+                var myPhotosSM = $('<img src="'+myAnimals.photos[0].small+'"/>');
+                var myPhotosMD = $('<img src="'+myAnimals.photos[0].medium+'"/>');
+                var myPhotosLG = $('<img src="'+myAnimals.photos[0].full+'"/>');
+                myPhotosSMtxt.append(myPhotosSM,myPhotosMD,myPhotosLG);
+            } else {
+                var noPhotos=$("<p>").addClass("card-text").text("none available");
+                myPhotosSMtxt.append(noPhotos);
+            }
+            var myShelterURL = $("<p>").addClass("card-text").text("Shelter URL: "+myAnimals.url);
+            
+            var myContactA = $("<p>").addClass("card-text").text("Contact: "+myAnimals.contact.address);
+            adoptDiv.append(myPublished,myName,myGender, myAge, myBreed, myColor, myEnvironment, myDescription, myContactA, myContactE, myContactP, myShelterURL, myPhotosSMtxt);
+//the following function will printout all JSON keys and values
+            // $.each( apiResponse.animals[i], function( key, value ) {
+            //      var mySpan = $("<p>").addClass("card-text").text(key+": "+value);
+            //      //var myLB = $("<br>");
+            //     // mySpan.append(myLB);
+            //     adoptDiv.append(mySpan);
+                 
+            // });
+            $("#adoptable").append(adoptDiv);
+               
+         }
+        
     })
 }
 document.getElementById('find').addEventListener('click', function (event) {
