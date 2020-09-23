@@ -12,8 +12,6 @@ function getBreeds() {
     fetch(getBreedsUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                //console.log(data);
-                //console.log('datalength:' + data.length);
                 for (var i = 0; i < data.length; i++) {
                     var myOptions = $("<option>").val(data[i].id).text(data[i].name);
 
@@ -53,15 +51,12 @@ function getBreed(selectedBreed) {
     var getBreedURL = "https://api.thecatapi.com/v1/breeds/search?q=" + selectedBreed + "&api_key=" + catapiKey;
 
     fetch(getBreedURL).then(function (response) {
-        //console.log(response);
         if (response.ok) {
             response.json().then(function (data) {
-                console.log(data);
                 //Create Result Display Info
                 fetch("https://api.thecatapi.com/v1/images/search?breed_id=" + data[0].id + "&limit=1&size=thumb&api_key=" + catapiKey).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (urlInfo) {
-                            console.log(urlInfo);
 
                             var breedDisplay = document.getElementById("display")
                             breedDisplay.innerHTML = "";
@@ -160,7 +155,6 @@ function getBearerToken() {
     }).then(function (bearerToken) {
         // This provides you an access token. 
         // It is good for 3600 seconds, or 1 hour.
-        //console.log(bearerToken)
         getPetData(bearerToken.access_token)
     })
 }
@@ -180,14 +174,14 @@ function getPetData(bearerToken) {
     }).then(function (apiResponse) {
         return apiResponse.json()
     }).then(function (apiResponse) {
-        console.log(apiResponse);
-        console.log(apiResponse.animals);
 
         var findDisplay = document.getElementById('adoptable');
 
         findDisplay.innerHTML = "";
          for (var i = 0; i < apiResponse.animals.length; i++) {
-            var adoptDiv=$("<div>").attr("id", "adoptDiv"+i);
+            
+            var petResult= document.createElement("p");
+            petResult.setAttribute("id", "adobptDiv"+i);
             var myAnimals=apiResponse.animals[i];
             var myName = myAnimals.name
             var myGender = myAnimals.gender;
@@ -196,7 +190,12 @@ function getPetData(bearerToken) {
             var myShelterURL = myAnimals.url;
             var myPublished = myAnimals.published_at;
             var myEmail = myAnimals.contact.email;
+
+            if(myAnimals.contact.phone) {
             var myPhone = myAnimals.contact.phone;
+            } else {
+                var myPhone = "N/A";
+            }
 
             if (myAnimals.description) {
             var myDescription = myAnimals.description;
@@ -205,15 +204,15 @@ function getPetData(bearerToken) {
             }
 
             if (myAnimals.photos[0]){
-                var petPhoto = $('<img src="'+myAnimals.photos[0].medium+' alt="Pet Result Photo"/>');
+                var petPhoto = '<img src="' + myAnimals.photos[0].medium + '" alt="Pet Result Photo"';
             } else {
-                var petPhoto=$('<img src="https://raw.githubusercontent.com/chender93/curtishenderson.github.io/master/no-cat-photos.png" />');
+                var petPhoto= '<img src="https://raw.githubusercontent.com/chender93/curtishenderson.github.io/master/no-cat-photos.png"'
             };
 
-            findDisplay.innerHTML =
-            '<div class="card"> <div class="card-image"> <figure class="image is-1by1">' + petPhoto + '</figure> </div> <div class="card-content"> <div class="media"> <div class="media-content"> <p class="title is-3">' + myName + '</p> <p class="subtitle is-5">Age: ' + myAge + ' | Gender: ' + myGender + ' | Breed: ' + myBreed + '</p> <p class="subtitle is-5">' + myDescription + '<a href ="' + myShelterURL + 'Learn More</a> </p> <p class="subtitle is-6"> Contact by Phone: ' + myPhone + '</p> <a href="' + myEmail + ' class="subtitle is-6">Contact the Shelter</a> </div>  </div> <div class="content"> Published: ' + myPublished + '<br></div></div></div>'
+            petResult.innerHTML =
+            '<div class="card"> <div class="card-image"> <figure class="image is-1by1">' + petPhoto + '</figure> </div> <div class="card-content"> <div class="media"> <div class="media-content"> <p class="title is-3">' + myName + '</p> <p class="subtitle is-5">Age: ' + myAge + ' | Gender: ' + myGender + ' | Breed: ' + myBreed + '</p> <p class="subtitle is-5">' + myDescription + '</p> <p class="subtitle is-4"> <a href ="' + myShelterURL + '">Learn More </a></p> <p class="subtitle is-5"> <a href =mailto:"' + myEmail + '">Contact By Email </a><p> Contact By Phone: ' + myPhone + ' </p></p> </div>  </div> <div class="content"> Published: ' + myPublished + '<br></div></div></div>'
 
-            $("#adoptable").append(findDisplay);
+            findDisplay.appendChild(petResult);
                
          }
         
@@ -231,23 +230,3 @@ document.getElementById("submit").addEventListener('click', function (event) {
     var selectedBreed = $('#breed').find(":selected").text();
     getBreed(selectedBreed);
 });
-
-
-
-// for (var)
-
-//     var populateWeather = function (data, cityName) {
-
-//     console.log(data);
-
-//     for (var i = 0; i < 5; i++) {
-//       var weather = data['daily'][i];
-
-//       document.getElementById("city-search-term").innerHTML = cityName;
-
-//corresponding breed
-//(the user should also be able to see a random fact about cats under the picture??)
-//user should be able to save their favorite cat breeds to local storage
-//user can view their favorites list
-//in Find your Furry Friend Section
-//when user
