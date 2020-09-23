@@ -8,7 +8,7 @@ This project was created as an assignment for the PennLPS Fullstack Bootcamp.
 - PetFinder APIs
 - TheCat API
 
-<img src = images/petpurrfect_logo.png> 
+<img src = images/PetPurrfect copy.jpg> 
 
 
 ## Objective
