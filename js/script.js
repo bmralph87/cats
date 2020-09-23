@@ -189,45 +189,31 @@ function getPetData(bearerToken) {
          for (var i = 0; i < apiResponse.animals.length; i++) {
             var adoptDiv=$("<div>").attr("id", "adoptDiv"+i);
             var myAnimals=apiResponse.animals[i];
+            var myName = myAnimals.name
+            var myGender = myAnimals.gender;
+            var myAge = myAnimals.age
+            var myBreed = myAnimals.breeds.primary;
+            var myShelterURL = myAnimals.url;
+            var myPublished = myAnimals.published_at;
+            var myEmail = myAnimals.contact.email;
+            var myPhone = myAnimals.contact.phone;
 
-            adoptDiv.className = "column"
-            //var myPhotosSMtxt=$("<p>").addClass("media-content").text("Photos: ");
-            if (myAnimals.photos[0]){
-                var myPhotosSMtxt = $('<img src="'+myAnimals.photos[0].medium+'"/>');
-                myPhotosSMtxt.className = "is-centered";
+            if (myAnimals.description) {
+            var myDescription = myAnimals.description;
             } else {
-                var myPhotosSMtxt=$('<img src=https://raw.githubusercontent.com/chender93/curtishenderson.github.io/master/no-cat-photos.png');
+                var myDescription = "No description available";
             }
-            var myPublished = $("<p>").addClass("subtitle is-6").text("Published: "+myAnimals.published_at);
-            var myName = $("<p>").addClass("title is-4").text("Name: "+myAnimals.name);
-            var myGender_Age = $("<p>").addClass("subtitle is-4").text("Gender: "+myAnimals.gender + "   -   " + "Age: "+myAnimals.age);
-            var myBreed = $("<p>").addClass("subtitle is-4").text("Breeds: "+myAnimals.breeds.primary);
-            //var myColor = $("<p>").addClass("media-content").text("Colors: "+myAnimals.colors.primary+","+myAnimals.colors.secondary+","+myAnimals.colors.tertiary);
-           // var myEnvironment = $("<p>").addClass("media-content").text("Environment: "+myAnimals.environment.cats+","+myAnimals.environment.dogs+","+myAnimals.environment.children);
-            var myDescription = $("<p>").addClass("media-content").text("Description: "+myAnimals.description);
-            //var myContactA = $("<p>").addClass("media-content").text("Contact: "+myAnimals.contact.address.address1+","+myAnimals.contact.address.address2+","+myAnimals.contact.address.city+","+myAnimals.contact.address.state+","+myAnimals.contact.address.postcode+","+myAnimals.contact.address.country);
-            myContactE = document.createElement("p");
-            myContactE.className = "subtitle is-4";
-            myContactE.innerHTML = "<a href='mailto:" + myAnimals.contact.email + "'> Contact by Email' </a>";
-            //var myContactE = $("<p>").addClass("card-text").text("Contact: "+myAnimals.contact.email);
-            var myContactP = $("<p>").addClass("subtitle is-5").text("Contact by Phone: "+myAnimals.contact.phone);
-            
-            myShelterURL = document.createElement("p");
-            myShelterURL.innerHTML = "<a href='" + myAnimals.url + "'> Visit the Organization's Website </a>";
-            myShelterURL.className = "media-content";
-            //var myShelterURL = $("<p>").addClass("card-text").text("Shelter URL: "+myAnimals.url);
-            
-            var myContactA = $("<p>").addClass("media-content").text("Address: "+myAnimals.contact.address);
-            adoptDiv.append(myPhotosSMtxt, myName, myPublished,myGender_Age, myBreed, myDescription, myContactE, myContactP, myShelterURL);
-//the following function will printout all JSON keys and values
-            // $.each( apiResponse.animals[i], function( key, value ) {
-            //      var mySpan = $("<p>").addClass("card-text").text(key+": "+value);
-            //      //var myLB = $("<br>");
-            //     // mySpan.append(myLB);
-            //     adoptDiv.append(mySpan);
-                 
-            // });
-            $("#adoptable").append(adoptDiv);
+
+            if (myAnimals.photos[0]){
+                var petPhoto = $('<img src="'+myAnimals.photos[0].medium+' alt="Pet Result Photo"/>');
+            } else {
+                var petPhoto=$('<img src="https://raw.githubusercontent.com/chender93/curtishenderson.github.io/master/no-cat-photos.png" />');
+            };
+
+            findDisplay.innerHTML =
+            '<div class="card"> <div class="card-image"> <figure class="image is-1by1">' + petPhoto + '</figure> </div> <div class="card-content"> <div class="media"> <div class="media-content"> <p class="title is-3">' + myName + '</p> <p class="subtitle is-5">Age: ' + myAge + ' | Gender: ' + myGender + ' | Breed: ' + myBreed + '</p> <p class="subtitle is-5">' + myDescription + '<a href ="' + myShelterURL + 'Learn More</a> </p> <p class="subtitle is-6"> Contact by Phone: ' + myPhone + '</p> <a href="' + myEmail + ' class="subtitle is-6">Contact the Shelter</a> </div>  </div> <div class="content"> Published: ' + myPublished + '<br></div></div></div>'
+
+            $("#adoptable").append(findDisplay);
                
          }
         
