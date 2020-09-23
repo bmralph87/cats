@@ -33,7 +33,7 @@ function getBreeds() {
 getBreeds();
 
 //in Pawssible Pet Section
-//when a breed is selected, and submit button is clicked, site should prompt a picture of
+//when a breed is selected, and submit button is clicked, site should prompt a picture 
 
 
 var saveBreeds = function (selectedBreeds) { //saves recent breeds to local storage
@@ -107,26 +107,6 @@ function loadRecentBreeds() { // get recent breeds searched from local storage
     });
 };
 loadRecentBreeds();
-
-//test modal pop-up
-// var modal = document.getElementById("myModal");
-// var trigger = document.getElementById("submit");
-// var closeButton = document.getElementsByClassName("close-button");
-
-// trigger.onclick = function(){
-//     modal.display= "block";
-// }
-
-// closeButton.onclick = function(){
-//     modal.style.display = "none";
-// }
-// window.onclick = function(event){
-//     if (event.target == modal){
-//         modal.style.display = "none";
-//     }
-// }
-
-//end of modal test
 
 function showRecentBreeds(selectedBreeds) { //prints a recent breed
     // create elements that make up a task item
