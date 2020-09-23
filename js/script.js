@@ -12,8 +12,6 @@ function getBreeds() {
     fetch(getBreedsUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                //console.log(data);
-                //console.log('datalength:' + data.length);
                 for (var i = 0; i < data.length; i++) {
                     var myOptions = $("<option>").val(data[i].id).text(data[i].name);
 
@@ -53,15 +51,12 @@ function getBreed(selectedBreed) {
     var getBreedURL = "https://api.thecatapi.com/v1/breeds/search?q=" + selectedBreed + "&api_key=" + catapiKey;
 
     fetch(getBreedURL).then(function (response) {
-        //console.log(response);
         if (response.ok) {
             response.json().then(function (data) {
-                console.log(data);
                 //Create Result Display Info
                 fetch("https://api.thecatapi.com/v1/images/search?breed_id=" + data[0].id + "&limit=1&size=thumb&api_key=" + catapiKey).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (urlInfo) {
-                            console.log(urlInfo);
 
                             var breedDisplay = document.getElementById("display")
                             breedDisplay.innerHTML = "";
@@ -69,6 +64,7 @@ function getBreed(selectedBreed) {
                             breedName.textContent = data[0].name;
                             var breedImage = document.createElement("div");
                             breedImage.innerHTML = '<img src="' + urlInfo[0].url + '">';
+                            breedImage.className = "image-resize";
                             var breedFacts = document.createElement("p");
                             breedFacts.className = "playnice";
                             breedFacts.textContent = data[0].description;
@@ -139,7 +135,6 @@ function getBearerToken() {
     }).then(function (bearerToken) {
         // This provides you an access token. 
         // It is good for 3600 seconds, or 1 hour.
-        //console.log(bearerToken)
         getPetData(bearerToken.access_token)
     })
 }
@@ -159,48 +154,45 @@ function getPetData(bearerToken) {
     }).then(function (apiResponse) {
         return apiResponse.json()
     }).then(function (apiResponse) {
-        console.log(apiResponse);
-        console.log(apiResponse.animals);
 
+        var findDisplay = document.getElementById('adoptable');
 
+        findDisplay.innerHTML = "";
          for (var i = 0; i < apiResponse.animals.length; i++) {
-            var adoptDiv=$("<div>").attr("id", "adoptDiv"+i);
+            
+            var petResult= document.createElement("p");
+            petResult.setAttribute("id", "adobptDiv"+i);
             var myAnimals=apiResponse.animals[i];
-            
-            var myPublished = $("<p>").addClass("card-text").text("Published: "+myAnimals.published_at);
-            var myName = $("<p>").addClass("card-text").text("Name: "+myAnimals.name);
-            var myGender = $("<p>").addClass("card-text").text("Gender: "+myAnimals.gender);
-            var myAge =  $("<p>").addClass("card-text").text("Age: "+myAnimals.age);
-            var myBreed = $("<p>").addClass("card-text").text("Breeds: "+myAnimals.breeds.mixed+","+myAnimals.breeds.primary+","+myAnimals.breeds.secondary+","+myAnimals.breeds.unknown);
-            var myColor = $("<p>").addClass("card-text").text("Colors: "+myAnimals.colors.primary+","+myAnimals.colors.secondary+","+myAnimals.colors.tertiary);
-            var myEnvironment = $("<p>").addClass("card-text").text("Environment: "+myAnimals.environment.cats+","+myAnimals.environment.dogs+","+myAnimals.environment.children);
-            var myDescription = $("<p>").addClass("card-text").text("Description: "+myAnimals.description);
-            var myContactA = $("<p>").addClass("card-text").text("Contact: "+myAnimals.contact.address.address1+","+myAnimals.contact.address.address2+","+myAnimals.contact.address.city+","+myAnimals.contact.address.state+","+myAnimals.contact.address.postcode+","+myAnimals.contact.address.country);
-            var myContactE = $("<p>").addClass("card-text").text("Contact: "+myAnimals.contact.email);
-            var myContactP = $("<p>").addClass("card-text").text("Contact: "+myAnimals.contact.phone);
-            var myPhotosSMtxt=$("<p>").addClass("card-text").text("Photos: ");
-            if (myAnimals.photos[0]){
-                var myPhotosSM = $('<img src="'+myAnimals.photos[0].small+'"/>');
-                var myPhotosMD = $('<img src="'+myAnimals.photos[0].medium+'"/>');
-                var myPhotosLG = $('<img src="'+myAnimals.photos[0].full+'"/>');
-                myPhotosSMtxt.append(myPhotosSM,myPhotosMD,myPhotosLG);
+            var myName = myAnimals.name
+            var myGender = myAnimals.gender;
+            var myAge = myAnimals.age
+            var myBreed = myAnimals.breeds.primary;
+            var myShelterURL = myAnimals.url;
+            var myPublished = myAnimals.published_at;
+            var myEmail = myAnimals.contact.email;
+
+            if(myAnimals.contact.phone) {
+            var myPhone = myAnimals.contact.phone;
             } else {
-                var noPhotos=$("<p>").addClass("card-text").text("none available");
-                myPhotosSMtxt.append(noPhotos);
+                var myPhone = "N/A";
             }
-            var myShelterURL = $("<p>").addClass("card-text").text("Shelter URL: "+myAnimals.url);
-            
-            var myContactA = $("<p>").addClass("card-text").text("Contact: "+myAnimals.contact.address);
-            adoptDiv.append(myPublished,myName,myGender, myAge, myBreed, myColor, myEnvironment, myDescription, myContactA, myContactE, myContactP, myShelterURL, myPhotosSMtxt);
-//the following function will printout all JSON keys and values
-            // $.each( apiResponse.animals[i], function( key, value ) {
-            //      var mySpan = $("<p>").addClass("card-text").text(key+": "+value);
-            //      //var myLB = $("<br>");
-            //     // mySpan.append(myLB);
-            //     adoptDiv.append(mySpan);
-                 
-            // });
-            $("#adoptable").append(adoptDiv);
+
+            if (myAnimals.description) {
+            var myDescription = myAnimals.description;
+            } else {
+                var myDescription = "No description available";
+            }
+
+            if (myAnimals.photos[0]){
+                var petPhoto = '<img src="' + myAnimals.photos[0].medium + '" alt="Pet Result Photo"';
+            } else {
+                var petPhoto= '<img src="https://raw.githubusercontent.com/chender93/curtishenderson.github.io/master/no-cat-photos.png"'
+            };
+
+            petResult.innerHTML =
+            '<div class="card"> <div class="card-image"> <figure class="image is-1by1">' + petPhoto + '</figure> </div> <div class="card-content"> <div class="media"> <div class="media-content"> <p class="title is-3">' + myName + '</p> <p class="subtitle is-5">Age: ' + myAge + ' | Gender: ' + myGender + ' | Breed: ' + myBreed + '</p> <p class="subtitle is-5">' + myDescription + '</p> <p class="subtitle is-4"> <a href ="' + myShelterURL + '">Learn More </a></p> <p class="subtitle is-5"> <a href =mailto:"' + myEmail + '">Contact By Email </a><p> Contact By Phone: ' + myPhone + ' </p></p> </div>  </div> <div class="content"> Published: ' + myPublished + '<br></div></div></div>'
+
+            findDisplay.appendChild(petResult);
                
          }
         
@@ -218,23 +210,3 @@ document.getElementById("submit").addEventListener('click', function (event) {
     var selectedBreed = $('#breed').find(":selected").text();
     getBreed(selectedBreed);
 });
-
-
-
-// for (var)
-
-//     var populateWeather = function (data, cityName) {
-
-//     console.log(data);
-
-//     for (var i = 0; i < 5; i++) {
-//       var weather = data['daily'][i];
-
-//       document.getElementById("city-search-term").innerHTML = cityName;
-
-//corresponding breed
-//(the user should also be able to see a random fact about cats under the picture??)
-//user should be able to save their favorite cat breeds to local storage
-//user can view their favorites list
-//in Find your Furry Friend Section
-//when user
