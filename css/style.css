@@ -1,0 +1,120 @@
+/*Pseudo Code
+*/
+#navigation {
+    font-size: 20px;
+    font-family: 'Berkshire Swash', cursive;
+    background-color: #CD924C;
+}
+
+h2 {
+    font-family: 'Abhaya Libre', serif;
+    font-size: 50px;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Abhaya Libre', serif;
+    font-size: 40px;
+    text-align: center; 
+}
+
+body {
+    background-color: #EDCE9A;
+}
+
+p {
+    font-family: 'Abhaya Libre', serif;
+    font-size: 22px;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+.playnice {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    font-family: 'Abhaya Libre', serif;
+    font-size: 18px;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    overflow-wrap: break-word;
+}
+.dev-pics {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.meet-devs img {
+    width: 140px;
+    height: 190px;
+    padding-bottom: 30px;
+}
+
+.pawsible {
+    background-color: #FFE8C1;
+    width: 60%;
+    height: inherit;
+    margin: 0 auto;
+    border: 5px solid #CD924C;
+    border-radius: 10px;
+    padding: 40px 20px 20px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+.submit {
+    background-color: #CD924C;
+    color: #FFE8C1;
+}
+#find-friend {
+    padding: 50px 0 20px 0;
+}
+.fyff {
+    background-color: #FFDA9B;
+    width: 60%;
+    margin: 0 auto 80px auto;
+    border: 5px solid #CD924C;
+    border-radius: 10px;
+    padding: 40px 10px 20px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.fyff input {
+    width: 100%;
+    margin: 0 0 0px 0;
+}
+
+/*MEDIA QUERY FOR TABLETS */
+@media screen and (max-width: 768px) {
+#welcome {
+    font-size: 40px;
+}
+
+
+.fyff {
+    width: 80%;
+}
+
+
+/*MEDIA QUERY FOR PHONES AND SMALLER */
+@media screen and (max-width: 575px) {
+.meet-devs img {
+    width: 80px;
+    height: 120px;
+}
+.categories {
+    width: 100%;
+}
+
+.fyff {
+    width: 90%;
+}
+}
