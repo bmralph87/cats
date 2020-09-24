@@ -94,6 +94,7 @@ function loadRecentBreeds() { // get recent breeds searched from local storage
             breeds: []
         };
     }
+    
     // loop over object properties
     $.each(recentBreeds, function (select, arr) {
         // then loop over sub-array
