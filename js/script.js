@@ -8,7 +8,7 @@ var recentBreeds = "";
 
 function getBreeds() {
     var getBreedsUrl = "https://api.thecatapi.com/v1/breeds?attach_breed=0&api_key=" + catapiKey;
-
+    //get data from API 
     fetch(getBreedsUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
@@ -88,7 +88,7 @@ showRecentBreeds(selectedBreed);
 
 function loadRecentBreeds() { // get recent breeds searched from local storage
     recentBreeds = JSON.parse(localStorage.getItem("recentBreeds"));
-    // if nothing in localStorage, create a new object to track cities arrays
+    // if nothing in localStorage, create a new object to track Breeds arrays
     if (!recentBreeds) {
         recentBreeds = {
             breeds: []
@@ -98,7 +98,7 @@ function loadRecentBreeds() { // get recent breeds searched from local storage
     $.each(recentBreeds, function (select, arr) {
         // then loop over sub-array
         arr.forEach(function (selectedBreed) { // prints recent breeds
-            // showRecentBreeds(recentbreed.breedName); 
+            showRecentBreeds(selectedBreed.breedName); 
         });
     });
 };
